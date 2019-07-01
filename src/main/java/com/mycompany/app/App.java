@@ -14,10 +14,10 @@ import java.util.List;
  * Hello world!
  *
  */
-public class App {
+class App {
     private static final Logger log = LogManager.getLogger(App.class);
-    public static void readToList(String fileName) {
-        {
+
+     static List<String> readToList(String fileName) {
             List<String> strings = new ArrayList<>();
 
             try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -28,9 +28,9 @@ public class App {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-        }
+        return strings;
     }
+
     void writeToFile(List<String> strings,String fileName){
         log.debug("start");
         try (PrintWriter writer = new PrintWriter(fileName)) {
